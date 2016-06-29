@@ -1,6 +1,6 @@
-# CTF
+# CTF - Capture The Flag - Hacking Games
 
-En este repositorio iré escribiendo algunos Write-Up de juegos **CTF** (Capture de Flag) o retos **Hacking** que vayan surgiendo.
+En este repositorio iré escribiendo algunos Write-Up de juegos **CTF** o retos **Hacking** que vayan surgiendo.
 El objetivo de estos CTF es **APRENDER** y no hacer __"El Mal"__, por lo que no me hago responsable del mal uso de programas, técnicas o scripts que se utilicen sin mi consentimiento.
 
 - [x] **Google's XSS Game** 
