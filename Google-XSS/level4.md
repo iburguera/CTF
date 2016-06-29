@@ -61,7 +61,9 @@ Probamos de nuevo introduciendolo en el campo de timer y ejecutamos:
 https://xss-game.appspot.com/level4/frame?timer=')%3Balert('Esta patxiiiiiii?')%3Bvar temp=('
 ```
 
-Nos carga el timer y nos muestra el mensaje de alerta que nos pasa al siguiente nivel
+Nos carga el timer y nos muestra el mensaje de alerta que nos pasa al siguiente nivel :)
+
+Iker Burguera
 
 
 
