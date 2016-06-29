@@ -21,7 +21,7 @@ La contraseña la hemos sacado en el anterior apartado:
 Utilizamos esta contraseña para acceder al siguiente nivel 
 
 ```bash 
-$ ssh badit1@bandit.labs.overthewire.org
+$ ssh bandit1@bandit.labs.overthewire.org
 ```
 Entramos en la carpeta y hacemos un ls para saber que ficheros hay. Solamente hau un fichero con un guión **-**
 
