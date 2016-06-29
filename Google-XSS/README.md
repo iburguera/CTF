@@ -21,5 +21,5 @@ Training progress:
 - [x] **Level 5: Breaking protocol**	
 - [x] **Level 6: Follow the 🐇**	
 
-ÁNIMO A TODOS!! ;)
+ÁNIMO A TODOS!! Iker ;)
 
