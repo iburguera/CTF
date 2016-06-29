@@ -15,7 +15,7 @@ Utilizamos esta contraseña para acceder al siguiente nivel
 **FLAG** = {UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK}
 
 ```bash 
-$ ssh badit3@bandit.labs.overthewire.org
+$ ssh bandit3@bandit.labs.overthewire.org
 ```
 
 Observamos que hay un fichero que contiene espacios. Intentamos hacer un cat al fichero y nos devuelve la flag. 
