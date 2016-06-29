@@ -21,5 +21,9 @@ Training progress:
 - [x] **Level 5: Breaking protocol**	
 - [x] **Level 6: Follow the 🐇**	
 
-ÁNIMO A TODOS!! Iker ;)
+**ÁNIMO A TODOS!!** 
+
+ :v: :sunglasses: :v: 
+
+Iker Burguera 
 
