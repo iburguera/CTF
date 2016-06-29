@@ -62,6 +62,8 @@ Ahora quedaría de esta forma (modificamos la **H** del principio del **https** 
 
 ``` https://xss-game.appspot.com/level6/frame#Https://pastebin.com/raw/ny1kd5mC ```
 
-Nos muestra un cuadro de texto indicando que hemos pasado de nivel y completado el Juego de XSS de Google :)
+Nos muestra un cuadro de texto indicando que hemos pasado de nivel y completado el Juego de XSS de Google :) 
+
+:beers: :v: :sunglasses: :v: :beers:
 
 Iker Burguera
