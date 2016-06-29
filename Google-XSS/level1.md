@@ -23,3 +23,5 @@ Escribimos un script básico como el siguiente y lo introducimos en el campo y p
 ```
 
 El texto introducido en el textarea se ejecuta como una alerta en el navegador y nos muestra un mensaje diciendo que hemos pasado la prueba. :)
+
+Iker Burguera
