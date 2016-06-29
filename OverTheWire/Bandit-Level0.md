@@ -17,7 +17,7 @@ Fácil. Tenemos que conectarnos por **SSH** al a dirección **bandit.labs.overth
 Escribimos el siguiente comando en la consola:
   
 ```bash 
-$ ssh badit0@bandit.labs.overthewire.org
+$ ssh bandit0@bandit.labs.overthewire.org
 ```
 
 Accedemos sin problemas y observamos que hay un fichero que se llama **README** con el contenido de la flag:
