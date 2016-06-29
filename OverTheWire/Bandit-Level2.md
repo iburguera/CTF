@@ -19,7 +19,7 @@ La contraseña la hemos sacado en el anterior apartado:
 Utilizamos esta contraseña para acceder al siguiente nivel 
 
 ```bash 
-$ ssh badit2@bandit.labs.overthewire.org
+$ ssh bandit2@bandit.labs.overthewire.org
 ```
 
 Observamos que hay un fichero que contiene espacios. Intentamos hacer un cat al fichero y nos devuelve la flag. 
