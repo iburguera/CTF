@@ -31,3 +31,5 @@ En este caso vamos a poner mal el path the la imagen con el objetivo de que salt
 
 El texto introducido en el textarea del foro se ejecuta como una alerta en el navegador y nos muestra un mensaje diciendo que hemos pasado la prueba. :)
 
+Iker Burguera
+
