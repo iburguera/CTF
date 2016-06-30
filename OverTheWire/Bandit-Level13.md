@@ -2,7 +2,7 @@
 
 ##Level Goal
 
-The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on
+The password for the next level is stored in **/etc/bandit_pass/bandit14** and can only be **read** by user **bandit14**. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on
 
 ##Commands you may need to solve this level
 
@@ -80,10 +80,21 @@ bandit14@bandit.labs.overthewire.org's password:
 Permission denied, please try again.
 ```
 
-```html
-<font color="red">PENDIENTE</font>
+Despues de mirar los permisos de la clave privada me doy cuenta de que debería lanzar el comando con la opción ```sudo```de la siguiente forma:
+
+```bash
+$ sudo ssh bandit14@bandit.labs.overthewire.org -i ~/Almacen/sshkey.privatesshkey.private 
 ```
 
-Mirar permisos de la clave SSH
+Entramos sin contraseña utilizando la clave privada del usuario Bandit14 sin problemas esta vez :)
+
+Nos indican que tenemos la password en **/etc/bandit_pass/bandit14** así que vamos a por ella.
+
+```bash
+bandit14@melinda:/etc/bandit_pass$ cat bandit14
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+```
+
+**FLAG** = {4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e}
 
 
