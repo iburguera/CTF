@@ -18,7 +18,7 @@ La contraseña la hemos sacado en el anterior apartado:
 
 **FLAG** = {GbKksEFF4yrVs6il55v6gwY5aVje5f0j}
 
-Utilizamos esta contraseña para acceder al siguiente nivel o ya que hemos entrado en el nivel anterior la mantenemos abierta.
+Utilizamos esta contraseña para acceder al siguiente nivel.
 
 ```bash 
 $ ssh bandit20@bandit.labs.overthewire.org
