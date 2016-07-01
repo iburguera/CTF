@@ -74,10 +74,12 @@ Vemos que ha escrito el valor del password **/etc/bandit_pass/bandit22** en la r
 Vamos a ver que contiene el fichero ;) 
 
 ```bash
-bandit22@melinda:/etc/cron.d$ cat /tmp/8169b67bd894ddbb4412f91573b38db3
-Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+bandit22@melinda:~$ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+8ca319486bfbbc3663ea0fbe81326349
+bandit22@melinda:~$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
 ```
 
-**FLAG** = {Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI}
+**FLAG** = {jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n}
 
 
