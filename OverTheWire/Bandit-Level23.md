@@ -96,4 +96,6 @@ UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
 **FLAG** = {UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ}
 
+NOTA= Después de cambiarle los permisos y copiar el fichero al directorio bandit24, tenemos que esperar un tiempo **timeout -s 9 60 "./$i"** hasta que cree el fichero en el directorio que le hayamos asignado. Luego el propio script elimina los scripts que hemos creado incluido el nuestro.
+
 
