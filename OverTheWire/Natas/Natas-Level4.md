@@ -44,5 +44,31 @@ while authorized users should come only from
 
 ¿Pero como vamos a acceder desde natas5 si todavia no tenemos acceso!? 
 
-Bueno tendremos que **engañarle** haciendo un pequeño **spoofing** a la hora de realizar un **request** 
+Bueno tendremos que **engañarle** haciendo un pequeño **spoofing** a la hora de realizar un **request** a la página haciendonos pasar como que venimos el **nivel 5**
+
+Para ello utilizamos un **plugin** o **herramienta** llamada **Tamper Data** que podemos instalarla en nuestro navegador **Firefox**
+
+La instalamos y la ejecutamos al darle **Refresh** en la página. El plugin intercepta la petición y nos muestra una ventana con los parámetros que podemos modificar.
+
+En este caso queremos modificar el parámetro **Referer** el cual contiene el valor de donde venimos. Lo modificamos y enviamos la petición para ver si hemos podido modificar el contenido de la petición
+
+```html
+Access disallowed. 
+You are visiting from 
+"http://natas5.natas.labs.overthewire.org/index.php"
+while authorized users should come only from 
+"http://natas5.natas.labs.overthewire.org/"
+```
+
+Vaya, hemos puesto mal la URL, le hemos añadido el **index.php** al final, pero esto nos sirve para comprobar que efectivamente podemos modificar la petición el servidor.
+
+Ahora nos aseguramos de escribir correctamente la URL y enviamos de nuevo la petición.
+
+Esta vez accedemos y nos muestra un mensaje muy bonito :)
+
+```html
+Access granted. The password for natas5 is iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq 
+```
+
+**FLAG** = {iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq }
 
