@@ -72,5 +72,5 @@ Esta vez accedemos y nos muestra un mensaje muy bonito :)
 Access granted. The password for natas5 is iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq 
 ```
 
-**FLAG** = {iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq }
+**FLAG** = {iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq}
 
