@@ -46,7 +46,9 @@ while authorized users should come only from
 
 Bueno tendremos que **engañarle** haciendo un pequeño **spoofing** a la hora de realizar un **request** a la página haciendonos pasar como que venimos el **nivel 5**
 
-Para ello utilizamos un **plugin** o **herramienta** llamada **Tamper Data** que podemos instalarla en nuestro navegador **Firefox**
+Para ello utilizamos un **plugin** o **herramienta** llamada **Tamper Data** que podemos instalarla en nuestro navegador **Firefox**.
+
+También podemos utilizar la herramienta **Burp** si estamos trabajando en un **Kali Linux** ;)
 
 La instalamos y la ejecutamos al darle **Refresh** en la página. El plugin intercepta la petición y nos muestra una ventana con los parámetros que podemos modificar.
 
