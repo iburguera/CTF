@@ -8,10 +8,11 @@ URL:      http://natas0.natas.labs.overthewire.org
 
 ##Write Up Iker
 
-Abrimos un navegador y nos conectamos a la **URL: http://natas0.natas.labs.overthewire.org** con: 
+Abrimos un navegador y nos conectamos a la página: 
 
-- **usuario: natas0**
-- **contraseña: natas0**
+- **URL        : http://natas0.natas.labs.overthewire.org** 
+- **Usuario    : natas0**
+- **Contraseña : natas0**
 
 Accedemos y nos sale un mensaje indicando que podemos encontrar la contraseña para el siguiente nivel en la misma página:
 
