@@ -160,13 +160,13 @@ ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw
 Vamos analizar la función **xor_encrypt($in)** pero antes que eso necesitamos saber como funciona un **XOR** y ver como podemos aprovechar para sacar lo que no necesitemos.
 
 ```bash 
-TEXTO ORIGINAL (XOR) KEY = TEXTO CIFRADO 
+TEXTO ORIGINAL (XOR) KEY = TEXTO CIFRADO (Valor en Cookie)
 ````
 
 Para sacar la clave **KEY** necesitamos hacer lo siguiente
 
 ```bash 
-TEXTO ORIGINAL (XOR) TEXTO CIFRADO = KEY 
+TEXTO ORIGINAL (XOR) TEXTO CIFRADO (Valor en Cookie) = KEY 
 ````
 
 En este caso nuestro **TEXTO ORIGINAL** es el asignado a la variable **$defaultdata**
@@ -180,6 +180,112 @@ El cual tenemos que conseguir que sea:
 ```php
 array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
 ```
+
+¡Hora de programa un poco! :smile:
+
+Vamos a programar un código en **PHP** que nos devolverá la **KEY** con la que ha estado codificando el texto en la función **xor_encrypt**
+
+```php
+ <?  
+
+ function xor_encrypt($in) 
+ {  
+   $text = $in;  
+   $key = json_encode(array( "showpassword"=>"no", "bgcolor"=>"#ffffff"));      
+   $outText = '';  
+   
+   for($i=0;$i<strlen($text);$i++) 
+   {  
+   		$outText .= $text[$i] ^ $key[$i % strlen($key)];  
+   }  
+   return $outText;  
+ } 
+
+$texto_original = base64_decode('ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw'); 
+$clave 			= xor_encrypt($texto_original);
+
+print "La clave utilizada es: $clave";
+?>
+```
+
+Nos devuelve el siguiente valor:
+
+```php
+ La clave utilizada es: qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq
+```
+
+Nos devuelve la **clave** o **key** -> **qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq** .
+
+Vemos que se repite el patrón -> **qw8J** 
+
+De momento lo dejamos así para probar luego más adelante.
+
+Ya tenemos la **key** con la que cifra el texto la función **xor_encrypt** así que ahora sólo nos queda crear el **texto_modificado** pasandole **json_encode** para crear el contenido que **escribiremos** en la **cookie** y después enviaremos para que nos muestre la contraseña:
+
+Tenemos las variables que tenemos necesarias:
+
+```php
+$texto_modificado = json_encode(array( "showpassword"=>"yes", "bgcolor"=>"#ffffff"));
+$key = "qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq"
+//$key = "qw8J"
+```
+
+NOTA: Como no se cual de las dos claves puede ser, si la **cadena entera** o **el patrón**, pongo la dos y pruebo el resultado
+
+Tenemos que escribir un código en **PHP** para que nos cree el contenido que escribiremos en la **cookie**
+
+```php
+ <?
+
+ function xor_encrypt() 
+ {  
+   $texto_modificado = json_encode(array( "showpassword"=>"yes", "bgcolor"=>"#ffffff"));
+   $key = "qw8J";
+
+   $salidaTexto = '';  
+ 
+   for($i=0;$i<strlen($texto_modificado);$i++) 
+   {  
+   	$salidaTexto .= $texto_modificado[$i] ^ $key[$i % strlen($key)];  
+   }  
+   return $salidaTexto;  
+ }  
+
+ $valorNuevaCookie = base64_encode(xor_encrypt());
+
+ print "El valor de la nueva cookie tiene que ser: $valorNuevaCookie"; 
+
+ ?>
+```
+
+NOTA: Después de pasar la prueba, hemos comprobado que utiliza **EL PATRÓN** y no la cadena de texto entera para realizar el **XOR** y por ese motivo hemos puesto el valor de la **$key = "qw8J"**
+
+Al igual que en anteriores niveles, ejecutamos el código que hemos escrito en alguna página web que nos permita testear código PHP online. En este caso, hemos vuelto a utilizar el **PHP Sandbox**
+
+```html
+http://sandbox.onlinephpfunctions.com/
+```
+
+Obtenemos la salida de texto: 
+
+```html
+El valor de la nueva cookie tiene que ser: ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK
+```
+
+Comparamos los valores de la **Nueva Cookie** y la **Antigua Cookie**
+
+- **Antigua Cookie**
+ - texto_original = array( "showpassword"=>"no", "bgcolor"=>"#ffffff")
+ - valor_Cookie = **ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw**
+
+- **Nueva Cookie** 
+ - texto_modificado = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff")
+ - valor_Cookie = **ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK**
+
+
+ 
+
+
 
 
 
