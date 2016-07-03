@@ -152,7 +152,7 @@ Volvemos a la pantalla anterior donde se estaba cargando la imagen del banner pe
 ~                                        
 ```
 
-Ahí está la password :D
+Ahí está la password :smile:
 
 **FLAG** = {5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z}
 
