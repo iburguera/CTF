@@ -96,6 +96,14 @@ Choose a JPEG to upload (max 1KB):<br/>
 </body> 
 ```
 
+Intentamos subir un fichero pero nos da un error probablemente relacionado con el tamaño del fichero (>1KB):
+
+```html
+There was an error uploading the file, please try again!
+```
+
+Utiulizamos las **herramientas del desarrollador** que trae **Google Chrome** para editar algunos campos ocultos que  
+
 
 
  
