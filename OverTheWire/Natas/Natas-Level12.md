@@ -212,7 +212,9 @@ Notice: Undefined variable: GET_ in /var/www/natas/natas12/upload/ujofljdn2f.php
 Warning: passthru(): Cannot execute a blank command in /var/www/natas/natas12/upload/ujofljdn2f.php on line 2
 ```
 
-Nos dice que no puede ejecutar un comando en 
+Nos dice que no puede **ejecutar** un **comando en blanco**, por lo tanto **si** podemos enviarle comandos a través de la **URL**! :smile:
+
+Montamos la **URL**
 
 
 
