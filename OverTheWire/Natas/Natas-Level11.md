@@ -281,7 +281,19 @@ Comparamos los valores de la **Nueva Cookie** y la **Antigua Cookie**
 - **Nueva Cookie** 
  - texto_modificado = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff")
  - valor_Cookie = **ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK**
+ 
+Bueno ahora solo nos queda poner el valor de la **Nueva Cookie** en la **Cookie** haciendo uso de la herramienta **EditThisCookie**
 
+Lo probamos y nos devuelve la contraseña del siguiente nivel :smile: :beer:
+
+```html
+Cookies are protected with XOR encryption
+
+The password for natas12 is EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+Background color:  #ffff55
+```
+
+**FLAG** = {EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3}
 
  
 
