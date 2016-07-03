@@ -133,6 +133,63 @@ $data = loadData($defaultdata);
 ```
 
 Vamos a leer con detenimiento el código y aclararnos que es lo que hace.
+
+Primero que nada vemos 3 funciones:
+
+- **loadData($def)**
+ - Carga los valores del parámetro **data** de la cookie que le enviamos para cifrarla con **XOR** 
+ - ```php $tempdata = json_decode(xor_encrypt(base64_decode($_COOKIE["data"])), true); ```
+- **xor_encrypt($in)**
+ - Recibe un valor y cifra ese valor con una **$key** que no nos muestran
+ - Devuelve el valor cifrado 
+- **saveData($d)**
+ - Guarda la información que le pasemos en la variable **$data** para que luego pueda comparar y ver si tiene que mostrar la password o no
+ 
+La primera función que se cargar es **loadData($def)** que básicamente carga el valor en **Base64** de la **Cookie** y la pasa por la función **xor_encrypt($in)** después de hacerlo un **base64_decode**. A continuación **Decodifica ese valor a **JSON**
+
+```php
+$tempdata = json_decode(xor_encrypt(base64_decode($_COOKIE["data"])), true);
+```
+
+Vamos a ver con la herramienta **EditThisCookie** que valor tiene la variable **$_COOKIE["data"]**
+
+```php
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw
+```
+
+Vamos analizar la función **xor_encrypt($in)** pero antes que eso necesitamos saber como funciona un **XOR** y ver como podemos aprovechar para sacar lo que no necesitemos.
+
+```bash 
+TEXTO ORIGINAL (XOR) KEY = TEXTO CIFRADO 
+````
+
+Para sacar la clave **KEY** necesitamos hacer lo siguiente
+
+```bash 
+TEXTO ORIGINAL (XOR) TEXTO CIFRADO = KEY 
+````
+
+En este caso nuestro **TEXTO ORIGINAL** es el asignado a la variable **$defaultdata**
+
+```php
+array( "showpassword"=>"no", "bgcolor"=>"#ffffff");
+```
+
+El cual tenemos que conseguir que sea:
+
+```php
+array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
+```
+
+
+
+
+
+
+
+
+
+
  
 
 
