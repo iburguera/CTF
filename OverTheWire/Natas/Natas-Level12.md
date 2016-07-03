@@ -241,6 +241,10 @@ Por alguna razón no me deja ejecutar los comandos que le paso desde el navegado
 ?>
 ```
 
+Accedemos a la página y nos devuelve la contraseña del siguiente nivel! :smile:
+
+**FLAG** = {jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY}
+
 
  
 
