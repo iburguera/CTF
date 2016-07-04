@@ -14,7 +14,7 @@ Abrimos un navegador y nos conectamos a la página:
 
 La contraseña la hemos sacado del nivel anterior.
 
-Accedemos a la página y nos muestra unos cmapos en el que tenemos que meter un **usuario** y **contraseña**
+Accedemos a la página y nos muestra unos campos en el que tenemos que meter un **usuario** y **contraseña**
 
 En principio parece un reto de **SQL Injection**
 
