@@ -88,6 +88,53 @@ Si metemos el parámetro **" OR "1"="1** nos indica que **This user exists.** la
 
 ¿Como lo hacemos? 
 
+Esta prueba me suena que puede ser un reto de **BLIND SQL Injection**. 
+
+**Blind SQL injection**, es una técnica de ataque que utiliza la inyección SQL. Su evidencia cuando en una página web, por una falla de seguridad, no se muestran mensajes de error al no producirse resultados correctos ante una consulta a la base de datos, mostrándose siempre el mismo contenido (es decir, solo hay respuesta si el resultado es correcto).
+
+En nuestro caso nos dice si el usuario existe o no existe con mensajes **This User Exists** o **This user doesn't exist**
+
+Como en esta ocasión tenemos un solo campo, tenemos que agregar más código al parámetro **Username** para que nos permita jugar con el parámetro **password**
+
+Para ello tendremos que crear algo así:
+
+```php
+natas16" AND password ...
+````
+
+La técnica de Blind SQL Injection nos va a permitir recibir mensajes de usuario **correcto** o **incorrecto** dependiento de los argumentos que les pasemos, por lo tanto tenemos que crear una consulta para el parámetro **password** que nos indique si la contraseña esta bien o mal.
+
+Mejor que esté bien o mal, vamos a optar por indicarle si la contraseña **contiene** o **empieza** con algún caracter. 
+
+Para eso utilizaremos la opción de sql **LIKE BINARY** que nos indica si una cadena de caracteres específica coincide con un patrón especificado. En este casi si la contraseña empieza con el valor **a**
+
+```php
+natas16" AND password LIKE BINARY "a%" "
+```
+
+- Si la respuesta es **This user exists** significa que la contraseña del usuario **natas16** empieza por **a.........**
+- Si la respuesta es **This user doesn't exist** significa que la contraseña no empieza por esa letra.
+
+Hacer esto a mano sería una autentica tortura, así que haciendo uso de un script en **python** hacemos un programa que automatice todo este proceso. 
+
+Sabemos que tenemos que conseguir una contraseña de **32 caracteres** de longitud
+
+Lo llamaremos **BlindNatas15Injector.py**
+
+```python
+```
+
+
+```php
+
+
+
+
+
+
+
+natas16" AND password LIKE BINARY "W%" "
+
 
 
 
