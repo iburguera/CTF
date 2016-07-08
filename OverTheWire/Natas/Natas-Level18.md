@@ -151,6 +151,10 @@ Vamos a ver si podemos hacer algo con las **COOKIES**
 
 Vemos que el valor de la **COOKIE** para el campo **PHPSESSID** es **93**
 
+```php
+PHPSESSID = 93
+```
+
 
 
 
