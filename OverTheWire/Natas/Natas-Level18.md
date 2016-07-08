@@ -14,7 +14,7 @@ Abrimos un navegador y nos conectamos a la página:
 
 La contraseña la hemos sacado del nivel anterior.
 
-Entramos a la web y nos muestra dos campons donde tenemos que introducir el **usuario** y la **contraseña** para poder conseguir las credenciales para el nivel **natas19**
+Entramos a la web y nos muestra dos campos donde tenemos que introducir el **usuario** y la **contraseña** para poder conseguir las credenciales para el nivel **natas19**
 
 ```html
 Please login with your admin account to retrieve credentials for natas19.
