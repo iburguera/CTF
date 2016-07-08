@@ -39,7 +39,7 @@ PHPSESSID = 3231372d61646d696e     ->  Hex2ASCII   -> PHPSESSID = 217-admin
 
 Viendo el reto anterior, podemos deducir que también tiene 640 sesiones posible para usuarios y admin. 
 
-En este caso, seguramente podamos crear un patrón del siguiente tipo y luego codificarlo en hex
+En este caso, seguramente podamos crear un patrón del siguiente tipo y luego codificarlo en **HEX**
 
 ```php
 201-admin
@@ -52,7 +52,7 @@ Así que vamos a crear otro script en python para que nos automatice la tarea de
 
 Vamos a utilizar el código del nivel anterior pero modificandole la linea del **SESSID** donde la codificaremos a **HEX** como nos indican.
 
-En un alarde de originalidad, vamos a ponerle el nombre de nata19.py :smile:
+En un alarde de originalidad, vamos a ponerle el nombre de **natas19.py** :smile:
 
 ```python
 import requests
