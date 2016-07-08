@@ -145,4 +145,12 @@ Intentamos logearnos con el truco de **SQL Injection** de introducir el usuario 
 You are logged in as a regular user. Login as an admin to retrieve credentials for natas19.
 ```
 
+Así que vamos a seguir mirando el código fuente para ver como podemos hacerle creer que somos los usuarios **admin**
+
+Vamos a ver si podemos hacer algo con las **COOKIES** 
+
+Vemos que el valor de la **COOKIE** para el campo **PHPSESSID** es **93**
+
+
+
 
