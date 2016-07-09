@@ -8,6 +8,8 @@ Para jugar a este juego es necesario registrarse, así que nos registramos y acc
 
 Accedemos a la página web y observamos que nos piden que introduzcamos un **Usuario** y una **Contraseña**  
 
+##Hint
+
 ```html
 Do NOT enter your credentials below, these levels are here to test you. Find the correct details and proceed to the next level.
 
@@ -18,6 +20,8 @@ Username:
 Password:
 Submit
 ```
+
+## Explicación
 
 Como no nos dan ninguna pista, empezamos mirando el código fuente de la página web para ver si podemos ver algo ahí.
 
