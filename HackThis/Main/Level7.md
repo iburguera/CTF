@@ -22,7 +22,7 @@ Nos dicen que la contraseña está oculta en un fichero **TXT** pero que no es t
 
 Sabemos que el fichero **Robots.txt** pueden ser de gran ayuda para ver información adicional a la página web y mostrar directorios que no quieren que veamos ;)
 
-Accedemos y vemos lo siguiete
+Accedemos y vemos lo siguiente
 
 ```html
 User-agent: *
