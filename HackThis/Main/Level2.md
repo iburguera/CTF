@@ -51,6 +51,6 @@ User: resu
 Pass: ssap
 ```
 
-Los introducimos en el campo de texto y vemos que las credenciales son válidad y pasámos el reto :smile:
+Los introducimos en el campo de texto y vemos que las credenciales son válida y pasámos el reto :smile:
 
 **FLAG** = {resu/ssap}
