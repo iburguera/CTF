@@ -41,7 +41,7 @@ Como no nos dan ninguna pista, empezamos mirando el código fuente de la página
 </form>
 ```
 
-Observamos como hay dos campo sospechosos en color **Negro** -> **rgb(0, 0, 0)** en cual muestra un texto en ese color. 
+Observamos como hay dos campos sospechosos en color **Negro** -> **rgb(0, 0, 0)** en cual muestra un texto en ese color. 
 
 Como el color del background es negro, no podemos verlo, así que apuntamos los dos texto que probablemente sean el usuario y la contraseña del reto
 
