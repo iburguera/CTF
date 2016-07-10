@@ -40,14 +40,7 @@ User: heaven
 Pass: hell
 ```
 
-Los introducimos en el campo de texto y vemos que las credenciales son válidad y pasámos el reto :smile:
+Los introducimos en el campo de texto y vemos que las credenciales son válida y pasámos el reto :smile:
 
 **FLAG** = {heaven/hell}
 
-
-
-
-
-<script type="text/javascript">
-$(function(){ $('.level-form').submit(function(e){ if(document.getElementById('user').value == 'heaven' && document.getElementById('pass').value == 'hell') { } else { e.preventDefault(); alert('Incorrect login') } })})
-</script>
