@@ -63,6 +63,6 @@ User: 999
 Pass: 911
 ```
 
-Los introducimos en el campo de texto y vemos que las credenciales son válidad y pasámos el reto :smile:
+Los introducimos en el campo de texto y vemos que las credenciales son válida y pasámos el reto :smile:
 
 **FLAG** = {999/911}
