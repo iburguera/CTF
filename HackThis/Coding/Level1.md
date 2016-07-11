@@ -9,9 +9,7 @@ Para jugar a este juego es necesario registrarse, así que nos registramos y acc
 ##Hint
 
 ```html
-Slightly more complicated JavaScript this time, but just as insecure.
-
-Refresh to try again.
+The words have been jumbled up, your task is to write some code to return them to alphabetical order. Then submit your answer in the same format, for example: ant, badger, cattle, zebra. You have 5 seconds to complete the mission.
 ```
 
 ## Explicación
@@ -20,11 +18,11 @@ En este reto de programación, tenemos que ordenar una lista de palabras que nos
 
 La lista pone las palabras de forma aleatoria por lo que tendremos que programar un código que:
 
-- 1 Hacer Login a la página del Reto
-- 2 Acceder a la URL del Nivel 1 de Coding
-- 3 Conseguir la lista de palabras desordenadas que nos muestran
-- 4 Ordenar la lista de palabras
-- 5 Enviar el contenido para pasar el reto
+1. Hacer Login a la página del Reto
+2. Acceder a la URL del Nivel 1 de Coding
+3. Conseguir la lista de palabras desordenadas que nos muestran
+4. Ordenar la lista de palabras
+5. Enviar el contenido para pasar el reto
 
 Como de costumbre vamosa utilizar **Python** para programar un **BOT** y **Firefox** como navegador predeterminado
 
