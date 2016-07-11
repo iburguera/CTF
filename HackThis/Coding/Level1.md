@@ -16,7 +16,7 @@ The words have been jumbled up, your task is to write some code to return them t
 
 En este reto de programación, tenemos que ordenar una lista de palabras que nos propocionan en un textarea. 
 
-La lista pone las palabras de forma aleatoria por lo que tendremos que programar un bot para que haha lo siguiente:
+La lista pone las palabras de forma aleatoria por lo que tendremos que programar un bot para que haga lo siguiente:
 
 1. Hacer Login a la página del Reto
 2. Acceder a la URL del Nivel 1 de Coding
