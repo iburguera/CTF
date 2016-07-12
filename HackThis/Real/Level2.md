@@ -73,6 +73,49 @@ Vemos un código interesante en la función
 URL= "members/" + username + " " + password + ".htm";
 ```
 
+Parece que cada usuario tiene una página **htm** creada que está compuesta por:
+
+```html
+username + "" + password + "*.htm"
+```
+
+Vamos a probar si podemos acceder a la carpeta **members** de la página web
+
+```html
+https://www.hackthis.co.uk/levels/extras/real/2/members/
+```
+
+Entramos y nos encontramos lo siguiente:
+
+```html
+Index of /levels/extras/real/2/members/
+
+../
+anna god.htm                                       28-Nov-2014 12:27                   0
+dave fish_r_friends.htm                            28-Nov-2014 12:27                   0
+jack kack.htm                                      28-Nov-2014 12:27                   0
+librarian sweetlittlebooks.htm                     28-Nov-2014 12:27                   0
+luke 9312.htm                                      28-Nov-2014 12:27                   0
+sam sam                                            28-Nov-2014 12:27                   0
+```
+
+Como ya sabesmo cual es la estructura de los usuarios y contraseñas, podemos sacarlas fácilmente de la lista anterior:
+
+|     USUARIO    |   CONTRASEÑA   |
+| -------------- | -------------- |
+|       ana      |       god      |
+|      dave      | fish_r_friends |
+|      jack      |       jack     |
+|    librarian   |sweetlittlebooks|
+|      luke      |       9312     |
+|      sam       |       sam      |
+
+¡BIEN! Ya tenemos los usuarios y contraseña :sunglasses:
+
+Ahora vamos a acceder a las páginas para saber quien no ha devuelto los libros y tiene una gran sanción.
+
+
+
 
 
 
