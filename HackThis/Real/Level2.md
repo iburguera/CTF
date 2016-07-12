@@ -119,6 +119,8 @@ Entramos en la siguiente URL e introducimos los siguientes parámetros (**librar
 https://www.hackthis.co.uk/levels/extras/real/2/login.html
 ```
 
+Introduciendo los datos correctamente pasamos la prueba :smile: :beers:
+
 **FLAG** = {librarian / sweetlittlebooks}
 
 
