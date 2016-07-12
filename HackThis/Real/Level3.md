@@ -110,6 +110,31 @@ function makehash(str,mult)
 };
 ```
 
-Menudo chorrazo de código :cry:
+Menudo chorrazo de código espero que no tengamos que reinvertirlo :cry:
 
-Vamos a ir poco a poco entendiendo que es lo que hace el código.
+Despues de mirar el código y no sacar nada claro, volvemos a la página anterior y vemos que se nos había escapado un trozo de código que es muy interesante
+
+```javascript
+<script language="javascript" src="login.js"></script>
+```
+
+¡BIEN! Parece que utiliza el fichero JavaScript para comprobar los usuarios y pasarlos por las funciones anteriores.
+
+Vamos a acceder a la página **login.js**
+
+```html
+https://www.hackthis.co.uk/levels/extras/real/3/login.js
+```
+
+Y nos encontramos con esto
+
+```html
+m[m.length]=new Array("66913","78323683","Ksrg","/oiAguA/ykdp/8?rF=xhyvAttm");
+m[m.length]=new Array("644543","859223813","Krteb","/ohCeux/rlho/6?ww=wjwzohhw");
+m[m.length]=new Array("16130","78323683","Osqqrxz","kxyr://FED.mrslnn.kvs");
+```
+
+
+
+
+
