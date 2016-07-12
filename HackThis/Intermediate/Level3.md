@@ -1,4 +1,3 @@
-
 #HackThis - Intermediate -  Level 3
 
 URL:      https://www.hackthis.co.uk/levels/intermediate/3
