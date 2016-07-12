@@ -68,7 +68,10 @@ function check(frm)
     ary[i]=makehash(frm.elements[ary[i]].value,ary[i+3]);
     for(i=0;i<m.length;i++)
       if(m[i][0]==ary[0]) f[f.length]=i;
-        if(f.length==0) { alert("Member Not Found"); return; };
+        if(f.length==0) 
+        { 
+          alert("Member Not Found"); return; 
+        };
 
    for(i=0;i<f.length;i++)
     if(m[f[i]][1]==ary[1])
