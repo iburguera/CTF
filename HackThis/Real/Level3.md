@@ -134,6 +134,29 @@ m[m.length]=new Array("644543","859223813","Krteb","/ohCeux/rlho/6?ww=wjwzohhw")
 m[m.length]=new Array("16130","78323683","Osqqrxz","kxyr://FED.mrslnn.kvs");
 ```
 
+Vamos a acceder a la página **members.js**
+
+```html
+https://www.hackthis.co.uk/levels/extras/real/3/members.js
+```
+
+Y nos encontramos con esto
+
+```html
+m[m.length]=new Array("Admin","password","Home","/levels/real/3?pw=password");
+m[m.length]=new Array("John T","sheeprule","Home2","/levels/real/3?pw=newsheep");
+m[m.length]=new Array("Temp","password","Loloips","http://www.google.com");
+```
+
+¡BINGO! La página de Members nos muestra el usuario y la contraseña de los usuarios :D
+
+Probamos con los distintos usuario y comprobamos que pasamos la prueba poniendo las credenciales del usuario **John T**
+
+**FLAG** = {John T / sheeprule}
+
+
+
+
 
 
 
