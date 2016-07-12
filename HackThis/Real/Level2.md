@@ -110,9 +110,16 @@ Como ya sabesmo cual es la estructura de los usuarios y contraseñas, podemos sa
 |      luke      |       9312     |
 |      sam       |       sam      |
 
-¡BIEN! Ya tenemos los usuarios y contraseña :sunglasses:
+¡BIEN! Ya tenemos los usuarios y contraseñas de los usuarios :sunglasses:
 
-Ahora vamos a acceder a las páginas para saber quien no ha devuelto los libros y tiene una gran sanción.
+Ahora vamos a acceder al usuario de la bibliotecaria para modificar los datos del sistema
+
+Entramos en la siguiente URL e introducimos los siguientes parámetros (**librarian** / **sweetlittlebooks**)
+```html
+https://www.hackthis.co.uk/levels/extras/real/2/login.html
+```
+
+**FLAG** = {librarian / sweetlittlebooks}
 
 
 
