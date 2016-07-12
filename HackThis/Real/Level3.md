@@ -61,7 +61,8 @@ function box(part,c,r)
 
 function check(frm)
 { 
-  var ary=new Array(0,1,1,7,9,8); f=new Array();
+  var ary=new Array(0,1,1,7,9,8); 
+  f=new Array();
   
   for(i=0;i<3;i++)
     ary[i]=makehash(frm.elements[ary[i]].value,ary[i+3]);
