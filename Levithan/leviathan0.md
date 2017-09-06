@@ -8,9 +8,11 @@ There is no information for this level, intentionally.
 
 Fácil. Tenemos que conectarnos por **SSH** a la dirección **leviathan.labs.overthewire.org** en el puerto **2223** con los siguientes datos:
 
-  - **User**: leviathan0
-  - **Pass**: leviathan0
-  
+```bash
+  - User: leviathan0
+  - Pass: leviathan0
+```
+
 Escribimos el siguiente comando en la consola:
   
 ```bash 
