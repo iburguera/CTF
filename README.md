@@ -28,6 +28,6 @@ Firma útil para meter en la cabecera del código
  #@Last Modified by: Iker
  #@Last Modified time: jueves, 31 de agosto de 2017, 22:31:27 CEST
 ``` 
-Os animo a que participéis en estos *retos* de **Seguridad Informática** ya que son muy divertidos y ponen en **"Hacke"** tu mente ;)
+Os animo a que participéis en estos *retos* de **Seguridad Informática** ya que son muy divertidos y didácticos ;)
 
 
