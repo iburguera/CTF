@@ -39,7 +39,7 @@ leviathan0@leviathan:~/.backup$ ls -l
 total 132
 -rw-r----- 1 leviathan1 leviathan0 133259 Jun 15 11:38 bookmarks.html
 ```
-Abrimos el fichero **bookmarks.html** pero es muy grande así que decidimos hacre un **grep** en busca de palabras como **Flag** o **password**
+Abrimos el fichero **bookmarks.html** pero es muy grande así que decidimos hacer un **grep** en busca de palabras como **Flag** o **password**
 
 ```bash
 leviathan0@leviathan:~/.backup$ cat bookmarks.html | grep "pass"
