@@ -52,7 +52,7 @@ for i in range(0,10000):
 	print comando
 	os.system(comando)
 ```
-Ejecutamos el comando y nos salta en el 7123 y comprobamos quienes somos para después mirar el fichero definitivo.
+Ejecutamos el comando y nos salta en el **7123** y comprobamos quienes somos para después mirar el fichero definitivo.
 
 ```bash
 ~/leviathan6 7123
@@ -60,6 +60,11 @@ $ whoami
 leviathan7
 $ cat /etc/leviathan_pass/leviathan7
 ahy7MaeBo9
+```
+El código que debemos meter al programa es el **7123** y nos dará la shell con el usuario **leviathas7**
+
+```bash
+$ ./leviathan6 7123
 ```
 
 :v: :sunglasses: :v:
