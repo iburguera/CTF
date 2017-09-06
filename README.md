@@ -9,7 +9,7 @@ El objetivo de estos CTF es **APRENDER** y no hacer __"El Mal"__, por lo que no 
 - [x] **Euskalhack 2016**
   - Web: http://euskalhack.org/index.php/es/
   - CTF: ~~https://ctf.euskalhack.org/home~~ (No Disponible - 30/06/2016)
-- [ ] **OverThe Wire**
+- [x] **OverThe Wire**
   - Web: http://overthewire.org/wargames/ 
   - CTF Levels
     - Bandit
@@ -17,7 +17,7 @@ El objetivo de estos CTF es **APRENDER** y no hacer __"El Mal"__, por lo que no 
     - Leviathan
     - Narnia
     - ...
-- [ ] **HackThis!!**
+- [x] **HackThis!!**
   - Web: https://www.hackthis.co.uk/  
     
 Firma útil para meter en la cabecera del código
