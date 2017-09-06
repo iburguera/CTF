@@ -19,7 +19,7 @@ Escribimos el siguiente comando en la consola:
 $ ssh leviathan1@leviathan.labs.overthewire.org -p 2223
 ```
 
-Accedemos sin problemas y vemos que no hay nada en el directorio
+Accedemos sin problemas.
 
 ```bash
 leviathan1@leviathan:~$ ls -l
